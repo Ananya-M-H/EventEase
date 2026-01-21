@@ -11,11 +11,12 @@ const {
 
 const { protect, admin } = require("../middleware/authMiddleware");
 const { validateEvent } = require("../middleware/validate");
-// 🌍 Public
+
+//  Public
 router.get("/", protect, getEvents);
 router.get("/:id", protect, getEventById);
 
-// 🛠 Admin only
+//  Admin only
 router.post("/", protect, admin, createEvent);
 router.put("/:id", protect, admin, updateEvent);
 router.delete("/:id", protect, admin, deleteEvent);

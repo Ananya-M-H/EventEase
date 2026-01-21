@@ -9,8 +9,7 @@ exports.createEvent = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    const status = totalSeats === 0 ? "CLOSED" : "UPCOMING";
-    
+    const status = totalSeats === 0 ? "CLOSED" : "UPCOMING";  
     const event = await Event.create({
       title,
       description,

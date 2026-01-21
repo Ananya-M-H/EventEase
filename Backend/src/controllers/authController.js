@@ -14,12 +14,12 @@ exports.registerUser = async (req, res) => {
     if (!name || !email || !year || !password || !confirmPassword) {
       return res.status(400).json({ message: "All fields are required" });
     }
-
+    
     // 2️⃣ Password match check
     if (password !== confirmPassword) {
       return res.status(400).json({ message: "Passwords do not match" });
     }
-
+     
     // 3️⃣ Check existing user
     const existingUser = await User.findOne({ email });
     if (existingUser) {
